@@ -7,46 +7,9 @@ namespace Lab10
     {
         public List<student> Students { get; set; } = new List<student>();
         public (student min, student max) FindExtremumStudents() 
-        {
-            int resultOfComparing;
-
-            // нахождение самого продуктивного гука
-            student bestStudent = Students[0];            
-            foreach (student s in Students)
-            {
-                resultOfComparing = bestStudent.CompareTo(s);
-                if (resultOfComparing < 0)
-                {
-                    bestStudent = s;
-                }
-                else if (resultOfComparing == 0)
-                {
-                    if ((int)s.position < (int)bestStudent.position)
-                    {
-                        bestStudent = s;
-                    }
-                }                
-            }
-
-            // нахождение засланного западными спецслужбами капиталиста, старающегося развалить
-            // великий социалистический строй китайской НАРОДНОЙ республики
-            student worstStudent = Students[0];
-            foreach (student s in Students)
-            {
-                resultOfComparing = worstStudent.CompareTo(s);
-                if (resultOfComparing > 0)
-                {
-                    worstStudent = s;
-                }
-                else if (resultOfComparing == 0)
-                {
-                    if ((int)s.position > (int)worstStudent.position)
-                    {
-                        worstStudent = s;
-                    }
-                }
-            }
-            (student, student) minMax = (worstStudent, bestStudent);
+        {            
+            Students.Sort();
+            (student, student) minMax = (Students[0], Students[Students.Count-1]);
             Reward(ref minMax);
             return minMax;
         }

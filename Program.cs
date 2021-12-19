@@ -40,17 +40,17 @@ namespace Lab10
         {
             double seed = r.NextDouble();
             int res = 0;
-            if (seed < 0.1)
+            if (seed < 0.0005)
             {
                 res = r.Next(1, 250_000);
             }
-            else if (seed < 0.9)
+            else if (seed < 0.9995)
             {
-                res = r.Next(25_000, 750_000);
+                res = r.Next(250_000, 750_000);
             }
             else
             {
-                res = r.Next(75_000, 1000_000);
+                res = r.Next(750_000, 1000_000);
             }
             return res;
         }

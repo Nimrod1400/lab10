@@ -2,8 +2,8 @@
 {
     enum Position
     {
-        ElementarySchool,
         PreSchool,
+        ElementarySchool,
         HighSchool,        
     }
 }

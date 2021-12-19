@@ -16,7 +16,15 @@ namespace Lab10
         public int CompareTo(object studentObj)
         {
             student st = (student)(studentObj as student?);
-            return this.countPhone.CompareTo(st.countPhone);
+            int phoneComparing = this.countPhone.CompareTo(st.countPhone);
+            if (phoneComparing == 0)
+            {
+                return ((int)this.position).CompareTo((int)st.position);
+            }
+            else
+            {
+                return phoneComparing;
+            }
         }
     }
 }
